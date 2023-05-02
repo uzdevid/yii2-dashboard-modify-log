@@ -1,0 +1,26 @@
+{
+  "name": "uzdevid/yii2-dashboard-modify-log",
+  "description": "Dashboard Modify Log",
+  "type": "yii2-extension",
+  "keywords": [
+    "yii2",
+    "dashboard",
+    "modify log"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "IbragimovDiyorbek",
+      "email": "uzdevid@gmail.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "~2.0.0",
+    "mistralys/text-diff": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "uzdevid\\dashboard\\modify\\log\\": ""
+    }
+  }
+}
