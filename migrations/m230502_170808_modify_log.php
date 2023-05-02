@@ -20,6 +20,15 @@ class m230502_170808_modify_log extends Migration {
             'old_value' => $this->text()->null()->defaultValue(null),
             'modify_time' => $this->bigInteger(16)->notNull(),
         ]);
+
+        $this->batchInsert('action', ['path'],
+            [
+                ['system/modify-log/index'],
+                ['system/modify-log/create'],
+                ['system/modify-log/view'],
+                ['system/modify-log/update'],
+                ['system/modify-log/delete']
+            ]);
     }
 
     /**
