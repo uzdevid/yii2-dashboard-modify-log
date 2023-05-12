@@ -2,6 +2,7 @@
 
 namespace uzdevid\dashboard\modify\log\models;
 
+use uzdevid\dashboard\models\User;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
