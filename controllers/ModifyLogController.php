@@ -14,6 +14,12 @@ use yii\helpers\Html;
 use yii\web\NotFoundHttpException;
 
 class ModifyLogController extends Controller {
+    public function __construct($id, $module, $config = []) {
+        parent::__construct($id, $module, $config);
+
+        $this->viewPath = '@uzdevid/yii2-dashboard-modify-log/views/modify-log';
+    }
+
     /**
      * @inheritDoc
      */
