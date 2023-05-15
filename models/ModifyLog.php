@@ -4,6 +4,7 @@ namespace uzdevid\dashboard\modify\log\models;
 
 use uzdevid\dashboard\models\User;
 use Yii;
+use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -14,8 +15,10 @@ use yii\db\BaseActiveRecord;
  *
  * @property int $id
  * @property int $user_id
- * @property int $model
+ * @property string $model
+ * @property string $table
  * @property int $model_id
+ * @property string $event
  * @property string $attribute
  * @property string|null $value
  * @property string|null $old_value
@@ -36,11 +39,11 @@ class ModifyLog extends ActiveRecord {
      */
     public function rules(): array {
         return [
-            [['user_id', 'model_id', 'attribute'], 'required'],
+            [['model', 'table', 'model_id', 'event', 'attribute'], 'required'],
             [['user_id', 'model_id', 'modify_time'], 'integer'],
             [['value', 'old_value'], 'string'],
             [['modify_time'], 'safe'],
-            [['attribute'], 'string', 'max' => 255],
+            [['table', 'event', 'attribute'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -52,7 +55,8 @@ class ModifyLog extends ActiveRecord {
         return [
             'id' => Yii::t('system.model', 'ID'),
             'user_id' => Yii::t('system.model', 'User ID'),
-            'system.model_id' => Yii::t('system.model', 'system.model ID'),
+            'model_id' => Yii::t('system.model', 'Model ID'),
+            'event' => Yii::t('system.model', 'Event'),
             'attribute' => Yii::t('system.model', 'Attribute'),
             'value' => Yii::t('system.model', 'Value'),
             'old_value' => Yii::t('system.model', 'Old Value'),
@@ -62,12 +66,18 @@ class ModifyLog extends ActiveRecord {
 
     public function behaviors(): array {
         $behaviors = parent::behaviors();
-        $behaviors['timestamp'] = [
+        $behaviors['TimestampBehavior'] = [
             'class' => TimestampBehavior::class,
             'attributes' => [
                 BaseActiveRecord::EVENT_BEFORE_INSERT => ['modify_time'],
             ],
             'value' => time()
+        ];
+
+        $behaviors['BlameableBehavior'] = [
+            'class' => BlameableBehavior::class,
+            'createdByAttribute' => 'user_id',
+            'updatedByAttribute' => false,
         ];
 
         return $behaviors;
