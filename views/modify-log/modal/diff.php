@@ -1,7 +1,6 @@
 <?php
 
-use uzdevid\dashboard\widgets\ModalPage\ModalPage;
-use uzdevid\dashboard\models\ModifyLog;
+use uzdevid\dashboard\modify\log\models\ModifyLog;
 use yii\bootstrap5\Html;
 use Mistralys\Diff\Diff;
 

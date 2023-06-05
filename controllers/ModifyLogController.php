@@ -4,8 +4,8 @@ namespace uzdevid\dashboard\modify\log\controllers;
 
 use Mistralys\Diff\Diff;
 use uzdevid\dashboard\base\web\Controller;
-use uzdevid\dashboard\models\ModifyLog;
-use uzdevid\dashboard\models\search\ModifyLogSearch;
+use uzdevid\dashboard\modify\log\models\ModifyLog;;
+use uzdevid\dashboard\modify\log\models\search\ModifyLogSearch;
 use uzdevid\dashboard\widgets\ModalPage\ModalPage;
 use uzdevid\dashboard\widgets\ModalPage\ModalPageOptions;
 use yii\filters\AccessControl;

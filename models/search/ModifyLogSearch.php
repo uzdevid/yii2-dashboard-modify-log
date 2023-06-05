@@ -2,7 +2,7 @@
 
 namespace uzdevid\dashboard\modify\log\models\search;
 
-use uzdevid\dashboard\models\ModifyLog;
+use uzdevid\dashboard\modify\log\models\ModifyLog;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 

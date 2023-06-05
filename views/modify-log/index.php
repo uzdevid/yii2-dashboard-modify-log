@@ -2,7 +2,7 @@
 
 use uzdevid\dashboard\base\helpers\Url;
 use uzdevid\dashboard\widgets\ModalPage\ModalPage;
-use uzdevid\dashboard\models\ModifyLog;
+use uzdevid\dashboard\modify\log\models\ModifyLog;
 use uzdevid\dashboard\models\service\MenuService;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
