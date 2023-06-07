@@ -2,7 +2,7 @@
 
 namespace uzdevid\dashboard\modify\log\widgets\ModifyLog;
 
-use uzdevid\dashboard\models\ModifyLog;
+use uzdevid\dashboard\modify\log\models\ModifyLog;
 use yii\data\ArrayDataProvider;
 
 class ModifyLogWidget extends \yii\bootstrap5\Widget {
