@@ -1,7 +1,7 @@
 <?php
 
 use uzdevid\dashboard\base\helpers\Url;
-use uzdevid\dashboard\models\ModifyLog;
+use uzdevid\dashboard\modify\log\models\ModifyLog;
 use uzdevid\dashboard\widgets\ModalPage\ModalPage;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
