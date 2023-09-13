@@ -1,6 +1,6 @@
 <?php
 
-namespace uzdevid\dashboard\access\control\bootstraps;
+namespace uzdevid\dashboard\modify\log\bootstraps;
 
 use uzdevid\dashboard\events\ModuleEvent;
 use uzdevid\dashboard\modify\log\controllers\ModifyLogController;
