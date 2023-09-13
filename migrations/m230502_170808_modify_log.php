@@ -23,14 +23,18 @@ class m230502_170808_modify_log extends Migration {
             'modify_time' => $this->bigInteger(16)->notNull(),
         ]);
 
-        $this->batchInsert('action', ['path'],
-            [
-                ['system/modify-log/index'],
-                ['system/modify-log/create'],
-                ['system/modify-log/view'],
-                ['system/modify-log/update'],
-                ['system/modify-log/delete']
-            ]);
+        $tableName = Yii::$app->db->tablePrefix . 'action';
+
+        if (Yii::$app->db->getTableSchema($tableName, true) === null) {
+            $this->batchInsert('action', ['id', 'action'],
+                [
+                    [10701, 'system/modify-log/index'],
+                    [10702, 'system/modify-log/create'],
+                    [10703, 'system/modify-log/update'],
+                    [10704, 'system/modify-log/view'],
+                    [10705, 'system/modify-log/delete']
+                ]);
+        }
     }
 
     /**
